@@ -5,7 +5,7 @@
 ;;; :Author: Martin Blais <blais@furius.ca>
 ;;; :Date:   2005
 ;;; :Abstract:
-;;;     
+;;;
 ;;;     Enhance the vertical cursor line movement with smart behaviour.
 ;;;
 ;;; Description
@@ -31,22 +31,22 @@
 ;;;
 ;;; History
 ;;; =======
-;;; 
+;;;
 ;;; It all started a long time ago when the author realized that M-n and M-p
 ;;; were not bound to anything.  Now, C-f and C-b meant forward and backward
 ;;; character, and M-f and M-b similarly meant forward and backward words.
 ;;; C-n and C-p did the same, but horizontally, but there was no equivalent
 ;;; for M-n and M-p.
-;;; 
+;;;
 ;;; So I build simplistic functions which would move the cursor up or down by
 ;;; a fixed number of lines, typically set to 4 (I used four for years and it
 ;;; got into my fingers).
-;;; 
+;;;
 ;;; Years later, wandering in the packages, I discovered the forward-paragraph
 ;;; and backward-paragraph functions, which were smart, they could detect the
 ;;; paragraph boundaries, and so I thought it would be great to use that
 ;;; instead for "slightly larger" upwards and downwards movement.
-;;; 
+;;;
 ;;; The problem was that skipping one-line paragraphs was too small-- I would
 ;;; prefer to use the more predictable single line movements for that-- and
 ;;; also, move the cursor in the middle of long code paragraphs, it was
@@ -65,7 +65,7 @@
 ;;; (like 4 or 5).  Otherwise it pretty much has the stickiness of paragraph
 ;;; movements, which really makes selecting stuff without the extra vertical
 ;;; whitespace so much more pleasant.  It's as if emacs knew what you want
-;;; most of the time.  Can't like without it now.  
+;;; most of the time.  Can't like without it now.
 ;;;
 ;;; Usage
 ;;; =====
@@ -181,13 +181,6 @@ Otherwise scroll a fixed number of lines."
   (interactive)
   (scroll-up-still
    (dubious-forward-paragraph-lines (- (or n 1)))))
-
-(global-set-key [(meta n)] 'dubious-forward-paragraph)
-
-(global-set-key [(meta n)] 'dubious-forward-paragraph)
-(global-set-key [(meta N)] 'dubious-forward-paragraph-scroll)
-(global-set-key [(meta p)] 'dubious-backward-paragraph)
-(global-set-key [(meta P)] 'dubious-backward-paragraph-scroll)
 
 
 (provide 'dubious-paragraphs)
